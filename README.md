@@ -1,6 +1,8 @@
 Final Term Project CIS_3270
+
 This project is about simulating an airline reservation system like expedia.com or
 cheaptickets.com.
+
 Functionality Requirements:
 1- Upon start of the application, the user should see a splash screen
 2- The Main menu gives the option to the user to register or login
@@ -29,6 +31,7 @@ be there in his/her account.
 11- You should always provide an option in any case to go back to Main Menu.
 12- Overall the application should be functional in most parts considering the
 requirements mentioned above.
+
 Coding Requirements:
 1- The codes should be written in Java and at least in four different classes (files).
 2- At least 3 concepts of Encapsulation, Inheritance, Polymorphism or Composition should
@@ -40,15 +43,18 @@ section of the code.
 6- The database programming part should be done using JDBC.
 7- Oracle, MySQL, PostgreSQL or SQL server can be used as RDBMS.
 NOTE: Choosing any other RDBMS is automatic failure of the project.
+
 Documentation Requirements:
 It should be at least 5 pages which explain:
 1- Briefly explains requirements and specification of the project
 2- Showing the class diagram using UML
 3- Showing the Data Model (Tables and all the PKs and FKs)
 4- Briefly explains about functionality and flow of the program
+
 Application GUI:
 GUI is a must for this project and application will not be considered for grading if it does not
 have a GUI. An elegant GUI is a plus but not a requirement for the project.
+
 Grading:
 %40 for Functionality Requirements
 %40 for Coding Requirements
