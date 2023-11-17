@@ -10,25 +10,13 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class Main extends Application {
-
+    
     @Override
     public void start(Stage primaryStage) {
         // Create buttons
         Button btnLogin = new Button("Login");
         Button btnRegister = new Button("Register");
         
-        // Set button actions (can be further developed)
-        btnLogin.setOnAction(e -> {
-            // Logic for login
-            System.out.println("Login button clicked!");
-        });
-        
-        btnRegister.setOnAction(e -> {
-            // Logic for registration
-            System.out.println("Register button clicked!");
-        });
-        
-        // Layout and scene
         VBox layout = new VBox(20);  // 20px spacing between elements
         layout.getChildren().addAll(btnLogin, btnRegister);
         
@@ -48,18 +36,5 @@ public class Main extends Application {
             LoginForm loginForm = new LoginForm();
             loginForm.display(primaryStage);
         });
-
- 
-
-        
-
-        
     }
-    
-    public static void main(String[] args) {
-        launch(args);
-       
-    }
-    
 }
-

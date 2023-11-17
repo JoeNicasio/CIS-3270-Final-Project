@@ -43,5 +43,3 @@ public class UserDAO {
     // Other CRUD operations (read, update, delete) would go here...
 
 }
-
-
