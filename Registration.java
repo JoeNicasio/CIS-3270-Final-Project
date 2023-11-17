@@ -44,7 +44,7 @@ public class Registration {
         Label passwordLabel = new Label("Password:");
         Label emailLabel = new Label("Email:");
         Label ssnLabel = new Label("SSN:");
-        Label securityQuestionLabel = new Label("Security Question:");
+        Label securityQuestionLabel = new Label("What is your street name?:");
 
         // Button for form submission
         Button submitButton = new Button("Register");
@@ -109,5 +109,4 @@ public class Registration {
         }
     }
 }
-
 
