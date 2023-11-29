@@ -1,6 +1,5 @@
 package application;
 
-import java.sql.Connection;
 
 import application.Registration;
 import javafx.application.Application;

@@ -1,4 +1,3 @@
-// LoginForm.java
 package application;
 
 import javafx.stage.*;
@@ -6,6 +5,10 @@ import javafx.scene.*;
 import javafx.scene.layout.*;
 import javafx.scene.control.*;
 import javafx.geometry.*;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class LoginForm {
 
@@ -30,8 +33,23 @@ public class LoginForm {
         PasswordField passwordInput = new PasswordField();
 
         Button loginButton = new Button("Login");
-        // Add logic for when the login button is clicked (authenticate user, etc.)
-        // loginButton.setOnAction(e -> { /* Handle login logic */ });
+        loginButton.setOnAction(e -> {
+            String username = usernameInput.getText();
+            String password = passwordInput.getText();
+            try {
+                if (authenticate(username, password)) {
+                    // Open the flight search window
+                    FlightSearch flightSearch = new FlightSearch();
+                    flightSearch.display(primaryStage);
+                } else {
+                    // Show error message
+                    Alert alert = new Alert(Alert.AlertType.ERROR, "Invalid username or password");
+                    alert.showAndWait();
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        });
 
         // Add components to the grid
         grid.add(usernameLabel, 0, 0);
@@ -43,5 +61,22 @@ public class LoginForm {
         Scene scene = new Scene(grid, 300, 200);
         window.setScene(scene);
         window.showAndWait();
+    }
+
+    private boolean authenticate(String username, String password) {
+        // Implement database query to check credentials
+        try (Connection connection = DBConnection.getConnection();
+             PreparedStatement statement = connection.prepareStatement("SELECT * FROM users WHERE username = ? AND password = ?")) {
+            statement.setString(1, username);
+            statement.setString(2, password);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                return true; // User found
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false; // User not found or error occurred
     }
 }
