@@ -67,20 +67,31 @@ public class FlightSearch {
     private void searchFlights(String fromCity, String toCity, LocalDate date, LocalTime time) {
         // Implement the database query and result display logic
         try (Connection connection = DBConnection.getConnection();
-             PreparedStatement statement = connection.prepareStatement("SELECT * FROM flights WHERE from_city = ? AND to_city = ? AND date = ? AND time = ?")) {
+             // Adjust the SQL query to match the actual column names and the desired search criteria
+             PreparedStatement statement = connection.prepareStatement(
+                    "SELECT * FROM flights WHERE from_city = ? AND to_city = ? AND departure_date = ? AND departure_time >= ?")) {
             statement.setString(1, fromCity);
             statement.setString(2, toCity);
             statement.setDate(3, java.sql.Date.valueOf(date));
+            // Assuming that you want to find flights after a certain time
             statement.setTime(4, java.sql.Time.valueOf(time));
             ResultSet resultSet = statement.executeQuery();
 
             // Process the result set and display the flights
             while (resultSet.next()) {
                 // Extract flight details from resultSet and display them
-                // You might want to display these in a TableView or similar UI component
+                // Here you can either print out the results or use a UI component like TableView to display them
+                System.out.println("Flight ID: " + resultSet.getInt("flight_id"));
+                System.out.println("From City: " + resultSet.getString("from_city"));
+                System.out.println("To City: " + resultSet.getString("to_city"));
+                // ... extract other fields
+                System.out.println("Departure Date: " + resultSet.getDate("departure_date"));
+                System.out.println("Departure Time: " + resultSet.getTime("departure_time"));
+                // ... extract other fields
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
 }
