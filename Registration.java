@@ -33,6 +33,8 @@ public class Registration {
         grid.setVgap(10);
         grid.setHgap(10);
         grid.setPadding(new Insets(10, 10, 10, 10));
+        
+        
 
         // Labels for the registration form
         Label firstNameLabel = new Label("First Name:");
@@ -78,6 +80,7 @@ public class Registration {
         window.setScene(scene);
         window.showAndWait();
     }
+    
 
     // Event handler for registration button click
     private void onRegisterButtonClick() {
@@ -108,5 +111,6 @@ public class Registration {
             System.out.println("Registration failed. Please try again.");
         }
     }
+    
 }
 

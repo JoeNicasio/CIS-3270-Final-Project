@@ -12,6 +12,7 @@ public class User {
     private String ssn;
 	private String securityQuestion;
 	private String securityAnswer;
+	private int id;
 
 
     public User(String firstName, String lastName, String address, String zip, 
@@ -30,8 +31,14 @@ public class User {
         this.securityAnswer = securityAnswer;// Consider the security implications of storing SSNs
     }
 
-    // Getters and Setters
-    public String getFirstName() {
+
+    public User(int id, String firstName) {
+		this.id = id;
+		this.firstName = firstName;
+	}
+
+
+	public String getFirstName() {
         return firstName;
     }
 
@@ -117,6 +124,11 @@ public class User {
 
 	public void setSecurityAnswer(String securityAnswer) {
 		this.securityAnswer = securityAnswer;
+	}
+
+
+	public int getId() {
+		return id;
 	}
 
 
